@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Temporizador</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1 class="titulo">Temporizador App</h1>
+
+    <div class="container-temporizador">
+      <div class="container-counter">
+        <button id='btn-sumar-horas' class="button button-sumar">+</button>
+        <span id="horas">0</span> <span>horas</span>
+        <button id='btn-restar-horas' class="button button-restar">-</button>
+      </div>
+      <div class="container-counter">
+        <button id='btn-sumar-minutos' class="button button-sumar">+</button>
+        <span id="minutos">1 </span> <span>minutos</span>
+        <button id='btn-restar-minutos' class="button button-restar">-</button>
+      </div>
+      <div class="container-counter">
+        <button id='btn-sumar-segundos' class="button button-sumar">+</button>
+        <span id="segundos">10 </span> <span>segundos</span>
+        <button id='btn-restar-segundos' class="button button-restar">-</button>
+      </div>
+    </div>
+
+
+    <div id="buttons">
+      <button id='btn-pausa' class="button">continuar/pausar</button>
+      <button id='btn-iniciar' class="button">iniciar</button>
+      <button id='btn-detener' class="button">detener</button>
+    </div>
+  </div>
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>
