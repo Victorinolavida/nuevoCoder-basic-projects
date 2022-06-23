@@ -37,9 +37,7 @@ const initTemporizador = () => {
         return
       case $btnHorasRestar:
         horas = Math.max(horas - 1, 0)
-        $horas.innerText = horas
-        console.log(horas)
-        return
+        return $horas.innerText = horas
       case $btnMinutosSumar:
         minutos = minutos + 1
         if (minutos == 60) {
@@ -47,18 +45,27 @@ const initTemporizador = () => {
           $horas.innerText = horas
           minutos = 0
         }
-        $minutos.innerText = minutos
-        return;
+        return $minutos.innerText = minutos
+
       case $btnMinutosRestar:
-        minutos = minutos - 1;
-        $minutos.innerHTML = Math.max(minutos, 0)
+        minutos = Math.max(minutos - 1, 0);
+        $minutos.innerHTML = minutos
+        return;
+      case $btnMegundosSumar:
+        segundos = segundos + 1;
+        if (segundos === 60) {
+          minutos = minutos + 1;
+          $minutos.innerHTML = minutos;
+          segundos = 0
+        }
+        return $segundos.innerText = segundos
 
-
-
-
+      case $btnMegundosRestar:
+        segundos = Math.max(segundos - 1, 0);
+        return $segundos.innerText = segundos;
 
       default:
-        console.log(target)
+
         return null
     }
   })
@@ -128,32 +135,3 @@ const initTemporizador = () => {
 
 initTemporizador()
 
-
-    // const buttonsHandler = () => {
-    //   let horas = +$horas.textContent
-    //   let minutos = +$minutos.textContent
-    //   let segundos = +$segundos.textContent
-    //   $buttonsFunctions.addEventListener('click', function (event) {
-
-
-    //     if (event.target === $btnMegundosSumar && segundos < 60) {
-    //       $segundos.textContent = `${segundos += 1}`
-    //     } else if (event.target === $btnMegundosSumar && segundos === 60) {
-    //       segundos = 0
-    //       $minutos.textContent = `${minutos += 1}`
-    //       $segundos.textContent = `${segundos}`
-    //     }
-
-    //     if (event.target === $btnMinutosSumar && minutos < 60) {
-    //       $minutos.textContent = `${minutos += 1}`
-    //     } else if (event.target === $btnMinutosSumar && minutos < 60) {
-    //       minutos = 0
-    //       $horas.textContent = `${horas += 1}`
-    //       $minutos.textContent = `${minutos}`
-    //     }
-    //   })
-
-
-    // }
-
-    // // buttonsHandler()
