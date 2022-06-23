@@ -46,7 +46,7 @@ body{
   color:whitesmoke;
   font-weight: 700;
   border-radius: 3px;
-  box-shadow: 5px 5px 8px rgba(0,0,0,.2);
+  box-shadow: 10px 10px 8px rgba(0,0,0,.2);
 }
 .button:hover{
   cursor: pointer;
@@ -56,11 +56,13 @@ body{
 }
 
 .button-sumar{
-  margin: 20px 0;
+  margin: 20px 30px;
+
+
 }
 
 .button-restar{
-  margin: 20px 0;
+  margin: 20px 30px;
 }
 
 
@@ -92,11 +94,64 @@ input{
   opacity: 0.5;
   background-color: grey;
   box-shadow: none;
-
+  cursor: auto;
 }
 .disable:hover{
   transform: none;
   background-color: grey;
   box-shadow: none;
+  cursor: default;
+}
+
+.popup{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0,0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__container{
+  display: flex;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  flex-direction: column;
+  align-items: center ;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  transition:all 0.6s ease;
+}
+
+h2{
+  text-transform: uppercase;
+}
+.popup__container--icon{
+  width: 70px; 
+  color: #2AFF31;
+}
+
+.btn-popup{
+  font-size: 30px;
+  padding: 5px 25px;
+  border-radius: 10px;
+  border:none;
+  background-color: #223545;
+  color:white
+}
+.btn-popup:hover{
+  background-color: rgba(34, 53, 69,0.8);
+
+}
+
+.popup_disable{
+  display: none;
+  visibility: hidden;
+  transition:all 0.4s ease-in-out;
 
 }

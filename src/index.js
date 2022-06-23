@@ -13,16 +13,21 @@ const $btnMegundosRestar = document.querySelector('#btn-restar-segundos');
 
 const $btnPause = document.querySelector('#btn-pausa')
 const $btnDetener = document.querySelector('#btn-detener')
+const $popup = document.querySelector('.popup')
 
 const $buttons = document.querySelector("#buttons")
-const $buttonsFunctions = document.querySelector('.container-temporizador')
+const $buttonsFunctions = document.querySelector('.container-temporizador');
+const $buttonPopup = document.querySelector('.btn-popup')
 
+//version angitua xd
 const initTemporizador = () => {
   let start = false;
   let temporizador;
   let horas = +$horas.textContent
   let minutos = +$minutos.textContent
   let segundos = +$segundos.textContent
+
+
 
   $buttonsFunctions.addEventListener('click', ({ target }) => {
     // if (target == $btnHorasSumar) {
@@ -149,54 +154,57 @@ const anotherTemporizador = () => {
   }
   const arr = [$minutos, $horas, $segundos];
 
+  $buttonPopup.addEventListener('click', function () {
+    $popup.classList.add('popup_disable')
+  })
+
+
   $buttonsFunctions.addEventListener('click', ({ target }) => {
     // if (target == $btnHorasSumar) {
     //   $horas.innerText = horas++
     // }
     switch (target) {
       case $btnHorasSumar:
-        $btnPause.disabled = false;
-        $btnPause.classList.remove('disable')
+
         horas = horas + 1
-        return $horas.value = horas
+        $horas.value = horas
+        return validateTime(segundos, minutos, horas)
 
       case $btnHorasRestar:
-        $btnPause.disabled = false;
-        $btnPause.classList.remove('disable')
+
         horas = Math.max(horas - 1, 0)
-        return $horas.value = horas
+        $horas.value = horas
+        return validateTime(segundos, minutos, horas)
       case $btnMinutosSumar:
-        $btnPause.disabled = false;
-        $btnPause.classList.remove('disable')
+
+
         minutos = minutos + 1
         if (minutos == 60) {
           horas = horas + 1
           $horas.value = horas
           minutos = 0
         }
-        return $minutos.value = minutos
 
+        $minutos.value = minutos
+        return validateTime(segundos, minutos, horas)
       case $btnMinutosRestar:
-        $btnPause.disabled = false;
-        $btnPause.classList.remove('disable')
         minutos = Math.max(minutos - 1, 0);
         $minutos.value = minutos
-        return;
+        return validateTime(segundos, minutos, horas)
       case $btnMegundosSumar:
-        $btnPause.disabled = false;
-        $btnPause.classList.remove('disable')
         segundos = segundos + 1;
         if (segundos === 60) {
           minutos = minutos + 1;
           $minutos.value = minutos;
           segundos = 0
         }
+        validateTime(segundos, minutos, horas)
         return $segundos.value = segundos
 
       case $btnMegundosRestar:
-        $btnPause.disabled = false;
-        $btnPause.classList.add('disable')
+
         segundos = Math.max(segundos - 1, 0);
+        validateTime(segundos, minutos, horas)
         return $segundos.value = segundos;
 
       default:
@@ -209,8 +217,8 @@ const anotherTemporizador = () => {
     horas = +$horas.value
     minutos = +$minutos.value
     segundos = +$segundos.value
-    minutos = minutos > 60 ? 60 : minutos
-    segundos = segundos > 60 ? 60 : minutos
+    minutos = minutos > 59 ? 59 : minutos
+    segundos = segundos > 59 ? 59 : minutos
     if (!segundos) {
       $segundos.value = 0
     }
@@ -220,6 +228,11 @@ const anotherTemporizador = () => {
     if (!horas) {
       $segundos.value = 0
     }
+    $horas.value = horas;
+    $minutos.value = minutos;
+    $segundos.value = segundos
+    return validateTime(segundos, minutos, horas)
+
   }))
 
 
@@ -240,12 +253,14 @@ const anotherTemporizador = () => {
       $horas.value = horas = 0
       $minutos.value = minutos = 0
       $segundos.value = segundos = 0
+      validateTime(segundos, minutos, horas)
+      $btnDetener.classList.add('disable')
+      $btnDetener.disabled = false;
     }
 
 
 
     if (start) {
-      console.log(start, 'if')
       temporizador = setInterval(() => {
 
         if (segundos !== 0) {
@@ -274,11 +289,13 @@ const anotherTemporizador = () => {
         }
 
 
-        console.log(`${horas}:${minutos}:${segundos}`)
 
         if (segundos === 0 && minutos == 0 && horas === 0) {
+          $popup.classList.remove('popup_disable')
+          validateTime(segundos, minutos, horas)
+
           clearInterval(temporizador)
-          alert('Temporizador finalizo')
+          // alert('Temporizador finalizo')
 
         }
 
@@ -291,6 +308,19 @@ const anotherTemporizador = () => {
 
 
 
+}
+
+
+const validateTime = (segundos, minutos, horas) => {
+  if (segundos === 0 && minutos === 0 && horas === 0) {
+    $btnPause.disabled = true;
+    $btnPause.classList.add('disable')
+  } else {
+    $btnPause.disabled = false;
+    $btnPause.classList.remove('disable')
+
+
+  }
 }
 
 anotherTemporizador()
