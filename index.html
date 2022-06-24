@@ -16,30 +16,34 @@
 
     <div class="container-temporizador">
       <div class="container-counter">
-        <button id='btn-sumar-horas' class="button button-sumar">+</button>
-        <!-- <span id="horas">0initTemporizador</span> <span>horas</span> -->
         <input id="horas" type="number" value='0' /><span>horas</span>
-        <button id='btn-restar-horas' class="button button-restar">-</button>
+        <div class="btn-function-container">
+          <button id='btn-sumar-horas' class="button button-sumar">&plus;</button>
+          <!-- <span id="horas">0initTemporizador</span> <span>horas</span> -->
+          <button id='btn-restar-horas' class="button button-restar"> &minus;</button>
+        </div>
       </div>
       <div class="container-counter">
-        <button id='btn-sumar-minutos' class="button button-sumar">+</button>
-        <!-- <span id="minutos">0</span> <span>minutos</span> -->
         <input id="minutos" type="number" value='0' /><span>minutos</span>
-
-        <button id='btn-restar-minutos' class="button button-restar">-</button>
+        <div class="btn-function-container">
+          <button id='btn-sumar-minutos' class="button button-sumar">&plus;</button>
+          <!-- <span id="minutos">0</span> <span>minutos</span> -->
+          <button id='btn-restar-minutos' class="button button-restar"> &minus;</button>
+        </div>
       </div>
       <div class="container-counter">
-        <button id='btn-sumar-segundos' class="button button-sumar">+</button>
         <input id="segundos" type="number" value='0' /><span>segundos</span>
         <!-- <span id="segundos">0 </span> <span>segundos</span> -->
-
-        <button id='btn-restar-segundos' class="button button-restar">-</button>
+        <div class="btn-function-container">
+          <button id='btn-sumar-segundos' class="button button-sumar">&plus;</button>
+          <button id='btn-restar-segundos' class="button button-restar"> &minus;</button>
+        </div>
       </div>
     </div>
 
 
     <div id="buttons">
-      <button id='btn-pausa' class="button">continuar/pausar</button>
+      <button id='btn-pausa' class="button">play</button>
       <button id='btn-detener' class="button disable">detener</button>
     </div>
   </div>
