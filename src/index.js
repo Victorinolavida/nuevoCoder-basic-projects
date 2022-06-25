@@ -151,7 +151,7 @@ const anotherTemporizador = () => {
       $btnDetener.classList.remove('disable')
 
       //cambia la leyenda 
-      $btnPause.innerHTML = 'Pause'
+      $btnPause.innerHTML = '&#x23f8'
       //inicial el temporizador
       temporizador = setInterval(() => {
 
@@ -202,7 +202,7 @@ const anotherTemporizador = () => {
     } else {
 
       //
-      $btnPause.innerHTML = 'play'
+      $btnPause.innerHTML = '&#x23f5'
       //Elimina el temporizador
       clearInterval(temporizador)
     }
