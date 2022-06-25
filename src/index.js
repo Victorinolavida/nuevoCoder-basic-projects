@@ -13,6 +13,8 @@ const $btnMegundosRestar = document.querySelector('#btn-restar-segundos');
 
 const $btnPause = document.querySelector('#btn-pausa')
 const $btnDetener = document.querySelector('#btn-detener')
+const $stop = document.querySelector('#stop')
+const $pause = document.querySelector('#pause')
 const $popup = document.querySelector('.popup')
 
 const $buttons = document.querySelector("#buttons")
@@ -21,19 +23,21 @@ const $buttonPopup = document.querySelector('.btn-popup')
 
 const $audio = new Audio('/static/alarma_2.mp3')
 
-const anotherTemporizador = () => {
+const main = () => {
 
   //! seteando las variables iniciales 
 
   //el boton detener por defecto esta desactivado
-  $btnDetener.disabled = true;
+  // $btnDetener.disabled = true;
   let start = false;
   let temporizador;
   let horas = +$horas.value
   let minutos = +$minutos.value
   let segundos = +$segundos.value
 
-  validateTime(horas, segundos, minutos)
+  // validateTime(horas, segundos, minutos)
+
+
   const arr = [$minutos, $horas, $segundos];
 
   //! boton que deactiva y desaparece el popup
@@ -151,7 +155,7 @@ const anotherTemporizador = () => {
       $btnDetener.classList.remove('disable')
 
       //cambia la leyenda 
-      $btnPause.innerHTML = '&#x23f8'
+      $btnPause.classList.add('pause')
       //inicial el temporizador
       temporizador = setInterval(() => {
 
@@ -202,7 +206,7 @@ const anotherTemporizador = () => {
     } else {
 
       //
-      $btnPause.innerHTML = '&#x23f5'
+      $btnPause.classList.remove('pause')
       //Elimina el temporizador
       clearInterval(temporizador)
     }
@@ -233,4 +237,4 @@ const resetValuesDOM = (...values) => {
   }
 }
 
-anotherTemporizador()
+main()

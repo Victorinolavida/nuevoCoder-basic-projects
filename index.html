@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-  
+
   <link rel="stylesheet" href="src/style.css">
   <link rel="stylesheet" href="src/responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,13 +48,17 @@
 
 
     <div id="buttons">
-      <button id='btn-pausa' class="button">&#x23f5</button>
-      <button id='btn-detener' class="button disable">&#x23f9</button>
+      <div class="container-btn-fun" id="pause">
+        <button id='btn-pausa' class="button-funciones funciones-pause" disabled></button>
+      </div>
+      <div class="container-btn-fun" id="stop">
+        <button id='btn-detener' class="button-funciones funciones-stop"></button>
+      </div>
     </div>
   </div>
 
   <div class="popup popup_disable">
-    <div class="popup__container  ">
+    <div class="popup__container ">
       <h2>El tiempo se acabó</h2>
       <div>
         <svg class="popup__container--icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -70,8 +74,9 @@
     <div class="container-footer-info">
       <h2> Team </h2> <br><br>
       <div class="container-body">
-        
-        <div class="column1"> <!--VICTORINO-->
+
+        <div class="column1">
+          <!--VICTORINO-->
           <h3>Victorino</h3>
           <div class="row">
             <img src="icons/LinkedIn.png">
@@ -82,7 +87,8 @@
             <a href="/">userVictorinoGitHub</a>
           </div>
         </div>
-        <div class="column2"> <!--KARY-->
+        <div class="column2">
+          <!--KARY-->
           <h3>Kary</h3>
           <div class="row">
             <img src="icons/LinkedIn.png">
@@ -93,7 +99,8 @@
             <a href="https://github.com/karysistemas10">karysistemas10</a>
           </div>
         </div>
-        <div class="column3"> <!--ANDRES-->
+        <div class="column3">
+          <!--ANDRES-->
           <h3>Andrés</h3>
           <div class="row">
             <img src="icons/LinkedIn.png">
@@ -104,7 +111,8 @@
             <a href="/">userAndresGitHub</a>
           </div>
         </div>
-        <div class="column3"> <!--VIRI-->
+        <div class="column3">
+          <!--VIRI-->
           <h3>Viridiana</h3>
           <div class="row">
             <img src="icons/LinkedIn.png">
