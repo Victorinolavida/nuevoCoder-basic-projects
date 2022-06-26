@@ -34,16 +34,20 @@ const main = () => {
   let horas = +$horas.value
   let minutos = +$minutos.value
   let segundos = +$segundos.value
+  $btnDetener.classList.add('disable')
+  validateTime(horas, segundos, minutos)
 
-  // validateTime(horas, segundos, minutos)
 
 
   const arr = [$minutos, $horas, $segundos];
 
   //! boton que deactiva y desaparece el popup
   $buttonPopup.addEventListener('click', function () {
+    start = false;
     //desactiva el popup
     $popup.classList.add('popup_disable')
+    validateTime(horas, minutos, segundos)
+    $btnPause.classList.remove('pause')
     //pausa le audio y lo resetea a 0 
     $audio.pause();
     $audio.currentTime = 0;
@@ -134,7 +138,7 @@ const main = () => {
     if (element.target == $btnDetener) {
       start = false;
       //limpia el temporizador
-      clearInterval(temporizador)
+      clearInterval(temporizador);
       //reseteando a cero los valores 
       horas = 0
       minutos = 0
@@ -183,8 +187,7 @@ const main = () => {
             }
           }
         }
-
-        validateTime(minutos, segundos, horas)
+        console.log(start, temporizador)
         //cuando el temporizador finalize
         if (segundos === 0 && minutos == 0 && horas === 0) {
           //inicia el audio
@@ -193,12 +196,9 @@ const main = () => {
           $popup.classList.remove('popup_disable')
           //Elimina el temporizador
           clearInterval(temporizador)
-
           validateTime(segundos, minutos, horas)
-
           $btnDetener.disabled = true;
           $btnDetener.classList.add('disable')
-
 
         }
 

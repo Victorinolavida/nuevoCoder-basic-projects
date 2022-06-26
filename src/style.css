@@ -149,13 +149,11 @@
   
   .disable{
     opacity: 0.7;
-    background-color: grey;
     box-shadow: none;
-    cursor: auto;
+    cursor: default;
   }
   .disable:hover{
-    transform: none;
-    background-color: grey;
+    transform: none;;
     box-shadow: none;
     cursor: default;
   }
